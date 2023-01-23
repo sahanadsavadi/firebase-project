@@ -14,7 +14,7 @@ export class AuthService {
         this.router.navigate(['dashboard']);
       },
       (err) => {
-        alert(err.messag);
+        alert(err.message);
         this.router.navigate(['/login']);
       }
     );
@@ -27,7 +27,7 @@ export class AuthService {
         this.router.navigate(['/login']);
       },
       (err) => {
-        alert(err.messag);
+        alert(err.message);
         this.router.navigate(['/register']);
       }
     );
@@ -39,7 +39,7 @@ export class AuthService {
         this.router.navigate(['/login']);
       },
       (err) => {
-        alert(err.messag);
+        alert(err.message);
       }
     );
   }

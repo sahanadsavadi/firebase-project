@@ -8,12 +8,14 @@ import { AngularFireModule } from '@angular/fire/compat';
 import { LoginComponent } from './component/login/login.component';
 import { RegistrComponent } from './component/registr/registr.component';
 import { DashboardComponent } from './component/dashboard/dashboard.component';
+import { FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [AppComponent, LoginComponent, RegistrComponent, DashboardComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent],

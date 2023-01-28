@@ -60,6 +60,8 @@ export class AuthService {
   // end method
 
   // forgot password
+
+  
   forgotPassword(email: string) {
     this.fireAuth.sendPasswordResetEmail(email).then(
       () => {

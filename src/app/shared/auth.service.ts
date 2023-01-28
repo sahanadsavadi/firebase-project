@@ -9,9 +9,14 @@ export class AuthService {
   //login methode
   login(email: string, password: string) {
     this.fireAuth.signInWithEmailAndPassword(email, password).then(
-      () => {
+      (res) => {
         localStorage.setItem('token', 'true');
-        this.router.navigate(['dashboard']);
+
+        if (res.user?.emailVerified == true) {
+          this.router.navigate(['dashboard']);
+        } else {
+          this.router.navigate(['/varify-email']);
+        }
       },
       (err) => {
         alert(err.message);
@@ -19,19 +24,27 @@ export class AuthService {
       }
     );
   }
-  //register methode
+
+  //end method
+
+  //register method
   register(email: string, password: string) {
     this.fireAuth.createUserWithEmailAndPassword(email, password).then(
-      () => {
+      (res) => {
         alert('Registration Successful');
         this.router.navigate(['/login']);
+        this.sendEmailForVariFiction(res.user);
       },
+
       (err) => {
         alert(err.message);
         this.router.navigate(['/register']);
       }
     );
   }
+  // end method
+
+  // Log Out method
   logout() {
     this.fireAuth.signOut().then(
       () => {
@@ -43,4 +56,33 @@ export class AuthService {
       }
     );
   }
+
+  // end method
+
+  // forgot password
+  forgotPassword(email: string) {
+    this.fireAuth.sendPasswordResetEmail(email).then(
+      () => {
+        this.router.navigate(['/varify-email']);
+      },
+      (err) => {
+        alert(err.message);
+      }
+    );
+  }
+
+  //Email VariFiction
+
+  sendEmailForVariFiction(user: any) {
+    user.sendEmailVerification().then(
+      (res: any) => {
+        this.router.navigate(['/varify-email']);
+      },
+      (err: any) => {
+        alert('something went wrong. not able to send mail to your email');
+      }
+    );
+  }
+
+  
 }

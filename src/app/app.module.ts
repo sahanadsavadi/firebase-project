@@ -9,8 +9,10 @@ import { LoginComponent } from './component/login/login.component';
 import { RegistrComponent } from './component/registr/registr.component';
 import { DashboardComponent } from './component/dashboard/dashboard.component';
 import { FormsModule } from '@angular/forms';
+import { ForgotPasswordComponent } from './component/forgot-password/forgot-password.component';
+import { VarifyEmailComponent } from './component/varify-email/varify-email.component';
 @NgModule({
-  declarations: [AppComponent, LoginComponent, RegistrComponent, DashboardComponent],
+  declarations: [AppComponent, LoginComponent, RegistrComponent, DashboardComponent, ForgotPasswordComponent, VarifyEmailComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

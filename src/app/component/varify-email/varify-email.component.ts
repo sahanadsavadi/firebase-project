@@ -10,6 +10,4 @@ export class VarifyEmailComponent implements OnInit {
   constructor(private auth: AuthService) {}
 
   ngOnInit() {}
-
-  Register() {}
 }

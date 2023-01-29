@@ -5,12 +5,17 @@ import {
   GithubAuthProvider,
   FacebookAuthProvider,
 } from '@angular/fire/auth';
+// import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { Router } from '@angular/router';
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  constructor(private fireAuth: AngularFireAuth, private router: Router) {}
+  constructor(
+    private fireAuth: AngularFireAuth,
+    private router: Router
+  ) // private dad: AngularFirestore
+  {}
 
   //login methode
   login(email: string, password: string) {

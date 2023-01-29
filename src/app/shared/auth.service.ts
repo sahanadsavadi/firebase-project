@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 })
 export class AuthService {
   constructor(private fireAuth: AngularFireAuth, private router: Router) {}
+
   //login methode
   login(email: string, password: string) {
     this.fireAuth.signInWithEmailAndPassword(email, password).then(
@@ -29,7 +30,6 @@ export class AuthService {
       }
     );
   }
-
   //end method
 
   //register method
@@ -61,11 +61,9 @@ export class AuthService {
       }
     );
   }
-
   // end method
 
   // forgot password
-
   forgotPassword(email: string) {
     this.fireAuth.sendPasswordResetEmail(email).then(
       () => {
@@ -76,9 +74,9 @@ export class AuthService {
       }
     );
   }
+  // end method
 
   //Email VariFiction
-
   sendEmailForVariFiction(user: any) {
     user.sendEmailVerification().then(
       (res: any) => {
@@ -89,6 +87,7 @@ export class AuthService {
       }
     );
   }
+  // end method
 
   //sign in with google
   googleSignIn() {
@@ -102,4 +101,5 @@ export class AuthService {
       }
     );
   }
+  // end method
 }

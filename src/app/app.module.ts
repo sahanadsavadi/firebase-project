@@ -17,7 +17,7 @@ import { VarifyEmailComponent } from './component/varify-email/varify-email.comp
     BrowserModule,
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
-    FormsModule
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

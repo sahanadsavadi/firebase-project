@@ -1,11 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
-import {
-  GoogleAuthProvider,
-  GithubAuthProvider,
-  FacebookAuthProvider,
-} from '@angular/fire/auth';
-// import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { GoogleAuthProvider } from '@angular/fire/auth';
 import { Router } from '@angular/router';
 @Injectable({
   providedIn: 'root',
@@ -13,9 +8,8 @@ import { Router } from '@angular/router';
 export class AuthService {
   constructor(
     private fireAuth: AngularFireAuth,
-    private router: Router
-  ) // private dad: AngularFirestore
-  {}
+    private router: Router 
+  ) {}
 
   //login methode
   login(email: string, password: string) {

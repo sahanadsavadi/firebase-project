@@ -21,7 +21,7 @@ export class DataService {
 
   //delet student
   deletStudent(student: Student) {
-    return this.AngularFireStore.doc('/students' + student.id).delete();
+    return this.AngularFireStore.doc('/students/' + student.id).delete();
   }
 
   // update student

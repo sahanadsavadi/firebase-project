@@ -1,23 +1,114 @@
 <div class="contauner-fluid">
-  <div class="row mt-5">
-    <div class="col"></div>
-    <div class="col-4">
-      <div class="card shadow">
+  <div class="row">
+    <div class="col-md-4 mt-5">
+      <div class="card border-0 shadow p-3">
+        <div class="form-floating mb-3">
+         
+          <h5 class="text-center text-warning">first name</h5>
+        </div>
+        <div class="form-floating mb-3">
+          <input
+            type="text"
+            class="form-control"
+            id="firstName"
+            name="firstname"
+            [(ngModel)]="first_name"
+          />
+          <label for="firstName">first name</label>
+        </div>
+        <div class="form-floating mb-3">
+          <div class="form-floating">
+            <input
+              type="text"
+              class="form-control"
+              id="lastName"
+              [(ngModel)]="last_name"
+              name="lastName"
+            />
+            <label for="lastName">last name</label>
+          </div>
+        </div>
+        <div class="form-floating mb-3">
+          <input
+            type="email"
+            class="form-control"
+            id="email"
+            name="email"
+            [(ngModel)]="email"
+          />
+          <label for="email">Email address</label>
+        </div>
+        <div class="form-floating mb-3">
+          <div class="form-floating">
+            <input
+              type="text"
+              class="form-control"
+              id="mobile"
+              name="mobile"
+              [(ngModel)]="mobile"
+            />
+            <label for="mobile">Mobile</label>
+          </div>
+        </div>
+        <button
+          type="button"
+          class="btn btn-outline-success"
+          (click)="addStudent()"
+        >
+          Add Student
+        </button>
+      </div>
+    </div>
+    <div class="col-md-8 mt-2">
+      <h5 class="text-danger">
+        student list 
+      </h5>
+      <div class="card p-3 shadow">
         <div class="card-body">
-          <form>
-            <div class="mb-3">
-              <h4 class="text-dark text-muted">Welcom</h4>
-            </div>
-
-            <button type="button" class="btn btn-info" (click)="LogOut()">
-              Log Out
-            </button>
-          </form>
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th scope="col">first name</th>
+                <th scope="col">last name</th>
+                <th scope="col">email</th>
+                <th scope="col">mobile</th>
+                <th scope="col">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let student of studenstList">
+                
+                <td>{{student.first_name}}</td>
+                <td>{{student.last_name}}</td>
+                <td>{{student.email}}</td>
+                <td>{{student.mobile}}</td>
+                <td class="btn btn-outline-danger" (click)="deleteStudent(student)">delet</td>
+              </tr>
+              
+            </tbody>
+          </table>
         </div>
       </div>
     </div>
-    <div class="col"></div>
   </div>
 </div>
 
+<!-- <div class="row mt-5">
+  <div class="col"></div>
+  <div class="col-4">
+    <div class="card shadow">
+      <div class="card-body">
+        <form>
+          <div class="mb-3">
+            <h4 class="text-dark text-muted">Welcom</h4>
+          </div>
 
+          <button type="button" class="btn btn-info" (click)="LogOut()">
+            Log Out
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="col"></div>
+</div> -->

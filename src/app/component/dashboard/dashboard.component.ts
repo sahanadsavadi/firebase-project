@@ -10,6 +10,13 @@ import { DataService } from 'src/app/shared/data.service';
 })
 export class DashboardComponent implements OnInit {
   studenstList: Student[] = [];
+  studentObj: Student = {
+    id: '',
+    first_name: '',
+    last_name: '',
+    email: '',
+    mobile: '',
+  };
   id: string = '';
   first_name: string = '';
   last_name: string = '';
@@ -18,12 +25,13 @@ export class DashboardComponent implements OnInit {
 
   constructor(private auth: AuthService, private data: DataService) {}
 
-  ngOnInit() {}
-  
-
-  LogOut() {
-    this.auth.logout();
+  ngOnInit() {
+    this.getAllStudent();
   }
+
+  // LogOut() {
+  //   this.auth.logout();
+  // }
 
   getAllStudent() {
     this.data.grtAllStudent().subscribe(
@@ -39,8 +47,31 @@ export class DashboardComponent implements OnInit {
       }
     );
   }
+  resetForm() {
+    this.id = '';
+    this.first_name = '';
+    this.last_name = '';
+    this.email = '';
+    this.mobile = '';
+  }
 
-  addStudent() {}
+  addStudent() {
+    if (
+      this.first_name == '' ||
+      this.last_name == '' ||
+      this.email == '' ||
+      this.mobile == ''
+    ) {
+      alert('fill all input fields');
+    }
+    this.studentObj.id = '';
+    this.studentObj.first_name = this.first_name;
+    this.studentObj.last_name = this.last_name;
+    this.studentObj.email = this.email;
+    this.studentObj.mobile = this.mobile;
+    this.data.addStudent(this.studentObj);
+    this.resetForm()
+  }
 
   updateStudent() {}
 

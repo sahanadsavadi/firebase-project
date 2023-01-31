@@ -10,6 +10,7 @@ import { DataService } from 'src/app/shared/data.service';
 })
 export class DashboardComponent implements OnInit {
   studenstList: Student[] = [];
+
   studentObj: Student = {
     id: '',
     first_name: '',
@@ -70,7 +71,7 @@ export class DashboardComponent implements OnInit {
     this.studentObj.email = this.email;
     this.studentObj.mobile = this.mobile;
     this.data.addStudent(this.studentObj);
-    this.resetForm()
+    this.resetForm();
   }
 
   updateStudent() {}

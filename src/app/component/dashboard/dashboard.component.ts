@@ -88,5 +88,7 @@ export class DashboardComponent implements OnInit {
     ) {
       this.data.deletStudent(student);
     }
+
+    // im readyfor continue
   }
 }

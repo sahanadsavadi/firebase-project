@@ -8,6 +8,8 @@ import { DataService } from 'src/app/shared/data.service';
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss'],
 })
+
+
 export class DashboardComponent implements OnInit {
   studenstList: Student[] = [];
 
@@ -29,12 +31,10 @@ export class DashboardComponent implements OnInit {
   ngOnInit() {
     this.getAllStudent();
   }
-
-  // LogOut() {
-  //   this.auth.logout();
-  // }
-
-  getAllStudent() {
+LogOut() {
+    this.auth.logout();
+  }
+getAllStudent() {
     this.data.grtAllStudent().subscribe(
       (res) => {
         this.studenstList = res.map((e: any) => {
@@ -48,6 +48,8 @@ export class DashboardComponent implements OnInit {
       }
     );
   }
+
+
   resetForm() {
     this.id = '';
     this.first_name = '';

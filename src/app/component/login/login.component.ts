@@ -17,7 +17,7 @@ export class LoginComponent implements OnInit {
     if (this.email == '') {
       alert('please enter your email');
       return;
-    } else if (this.email == '') {
+    } else if (this.password == '') {
       alert('please enter your password');
       return;
     }
